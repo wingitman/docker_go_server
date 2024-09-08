@@ -8,12 +8,13 @@ import (
   "os"
 )
 
+
 func main() {
 	m := http.NewServeMux()
+  addr := ":"+os.Getenv("PORT")
 
 	m.HandleFunc("/", handlePage)
 
-	const addr = os.Getenv("PORT")
 	srv := http.Server{
 		Handler:      m,
 		Addr:         addr,
